@@ -1,4 +1,4 @@
 # hello-world
 github guides
-# This is a github tutorial.
-## Edit your markdown below
+## Markdown tutorial
+[Markdown语法说明](http://wowubuntu.com/markdown/)
