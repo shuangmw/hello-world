@@ -61,3 +61,35 @@ class Solution:
             while self.stackA:
                 self.stackB.append(self.stackA.pop())
             return self.stackB.pop()
+        
+        
+# 跳台阶
+
+# 递归
+class Solution:
+    def jumpFloor(self, number):
+        # write code here
+        if number == 1:
+            return 1
+        elif number == 2:
+            return 2
+        else:
+            return self.jumpFloor(number-1) + self.jumpFloor(number-2)
+        
+# 迭代
+class Solution:
+    def jumpFloor(self, number):
+        # write code here
+        if number == 1:
+            return 1
+        elif number == 2:
+            return 2
+        else:
+            t1, t2 = 1, 2
+            i = 3
+            while(i<=number):
+                total = t1+t2
+                t1 = t2
+                t2 = total
+                i += 1
+            return total
