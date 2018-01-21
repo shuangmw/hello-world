@@ -18,6 +18,7 @@ def replaceSpace(s):
             temp += i
     return temp
 
+
 # 重建二叉树
 class TreeNode:
     def __init__(self, x):
@@ -34,6 +35,29 @@ class Solution:
         root.left = self.reConstructBinaryTree(pre, tin[:index])
         root.right = self.reConstructBinaryTree(pre, tin[index + 1:])
         return root
+
 sl = Solution() 
 result = sl.reConstructBinaryTree([1,2,4,7,3,5,6,8], [4,7,2,1,5,3,8,6])
 result.left.left.right.val
+
+
+# 两个栈实现一个队列
+class Solution:
+    def __init__(self):
+        self.stackA = []
+        self.stackB = []
+         
+    def push(self, node):
+        # write code here
+        self.stackA.append(node)
+         
+    def pop(self):
+        # return xx
+        if self.stackB:
+            return self.stackB.pop()
+        elif not self.stackA:
+            return None
+        else:
+            while self.stackA:
+                self.stackB.append(self.stackA.pop())
+            return self.stackB.pop()
