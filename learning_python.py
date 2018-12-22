@@ -1,4 +1,4 @@
-# 打印菱形
+## Print Diamond
 def print_diamond(n):
     for i in range(1,n+1):
         print ' '*(n-i), '*'*(2*i-1)
@@ -6,7 +6,7 @@ def print_diamond(n):
         print ' '*(n-i), '*'*(2*i-1)
         
 
-# 重建二叉树
+## Reconstruct Binary Tree
 class TreeNode:
     def __init__(self, x):
         self.val = x
@@ -29,9 +29,8 @@ result = sl.reConstructBinaryTree([1,2,4,7,3,5,6,8], [4,7,2,1,5,3,8,6])
 result.left.left.right.val
         
         
-# 跳台阶
-
-# 递归
+## Fibonacci
+# Solution 1: Recursion
 class Solution:
     def jumpFloor(self, number):
         # write code here
@@ -40,9 +39,8 @@ class Solution:
         elif number == 2:
             return 2
         else:
-            return self.jumpFloor(number-1) + self.jumpFloor(number-2)
-        
-# 循环
+            return self.jumpFloor(number-1) + self.jumpFloor(number-2)  
+# Solution 2: loop
 class Solution:
     def jumpFloor(self, number):
         # write code here
@@ -61,7 +59,7 @@ class Solution:
             return total
         
         
-# quick sort
+## Quick Sort
 def quick_sort(array, left, right):
     if left >= right:
         return
@@ -77,3 +75,16 @@ def quick_sort(array, left, right):
     array[left], key = key, array[left]
     quick_sort(array, low, left-1)
     quick_sort(array, left+1, high)
+    
+    
+## String Permutation
+def permutation(a):
+    if not a:
+        return []
+    if len(a) == 1:
+        return [a]
+    result = []
+    for i in range(len(a)):
+        for j in permutation(a[:i] + a[i+1:]):
+            result.append(a[i] + j)
+    return result
