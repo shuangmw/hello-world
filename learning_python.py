@@ -1,12 +1,12 @@
-## Print Diamond
+# Print Diamond
 def print_diamond(n):
     for i in range(1,n+1):
         print ' '*(n-i), '*'*(2*i-1)
     for i in range(n-1,0,-1):
         print ' '*(n-i), '*'*(2*i-1)
-        
 
-## Reconstruct Binary Tree
+
+# Reconstruct Binary Tree
 class TreeNode:
     def __init__(self, x):
         self.val = x
@@ -24,12 +24,12 @@ class Solution:
         root.right = self.reConstructBinaryTree(pre[i + 1:], tin[i + 1:])
         return root
 
-sl = Solution() 
+sl = Solution()
 result = sl.reConstructBinaryTree([1,2,4,7,3,5,6,8], [4,7,2,1,5,3,8,6])
 result.left.left.right.val
-        
-        
-## Fibonacci
+
+
+# Fibonacci
 # Solution 1: Recursion
 class Solution:
     def jumpFloor(self, number):
@@ -39,7 +39,7 @@ class Solution:
         elif number == 2:
             return 2
         else:
-            return self.jumpFloor(number-1) + self.jumpFloor(number-2)  
+            return self.jumpFloor(number-1) + self.jumpFloor(number-2)
 # Solution 2: loop
 class Solution:
     def jumpFloor(self, number):
@@ -57,9 +57,9 @@ class Solution:
                 t2 = total
                 i += 1
             return total
-        
-        
-## Quick Sort
+
+
+# Quick Sort
 def quick_sort(array, left, right):
     if left >= right:
         return
@@ -75,9 +75,9 @@ def quick_sort(array, left, right):
     array[left], key = key, array[left]
     quick_sort(array, low, left-1)
     quick_sort(array, left+1, high)
-    
-    
-## String Permutation
+
+
+# String Permutation
 def permutation(a):
     if not a:
         return []
