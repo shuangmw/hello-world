@@ -1,5 +1,5 @@
 def binary_search_first(array, key):
-    """e.g. find 5 in [4,5], returns 1. Note that mid is closer to left"""
+    """e.g. find 5 in [5,5], returns 0."""
 
     if not array:
         return -1
@@ -13,7 +13,8 @@ def binary_search_first(array, key):
         elif array[mid] > key:
             right = mid - 1
         else:
-            right = mid  # array stops to reduce when only 1 item left.
+            right = mid  # Note that mid is closer to left. 
+                         # array stops to reduce when only 1 item left.
                          # use '<' to avoid endless loop.
 
     if array[left] == key:
