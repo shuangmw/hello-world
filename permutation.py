@@ -1,5 +1,5 @@
-# String Permutation
 def permutation(a):
+    """string permutation"""
     if not a:
         return []
     if len(a) == 1:
@@ -9,3 +9,7 @@ def permutation(a):
         for j in permutation(a[:i] + a[i+1:]):
             result.append(a[i] + j)
     return result
+
+
+if __name__ == "__main__":
+    print permutation('abc')
