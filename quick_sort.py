@@ -17,25 +17,26 @@
 #     quick_sort(array, low, left-1)
 #     quick_sort(array, left+1, high)
 
-def quickSort(nums, low, high):
+def partition(nums, lo, hi):
+    pivot = nums[hi]
+    i = lo  # nums left of i should be smaller than pivot,
+            # so that could be swapped with pivot.
+    
+    for j in range(lo, hi):
+        if nums[j] < pivot:
+            nums[i], nums[j] = nums[j], nums[i]
+            i = i + 1
+    
+    nums[i], nums[hi] = nums[hi], nums[i]
+    return i
 
-    def partition(nums, low, high):
-        i = low - 1
-        pivot = nums[high]
 
-        for j in range(low, high):
-            if nums[j] <= pivot:
-                i = i + 1
-                nums[i], nums[j] = nums[j], nums[i]
-
-        nums[i+1], nums[high] = nums[high], nums[i+1]
-        return i + 1
-
-    if low < high:
-        pi = partition(nums, low, high)
-
-        quickSort(nums, low, pi-1)
-        quickSort(nums, pi+1, high)
+def quickSort(nums, lo, hi):
+    if lo < hi:
+        pi =  partition(nums, lo, hi)
+    
+        quickSort(nums, lo, pi-1)
+        quickSort(nums, pi+1, hi)
 
 
 a = [3,5,8,1,2,9,4,7,6]
